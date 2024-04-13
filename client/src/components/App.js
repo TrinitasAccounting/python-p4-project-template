@@ -1,8 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Outlet } from 'react-router-dom'
+
+import NavBar from "./NavBar";
+
+
+
+
 
 function App() {
-  return <h1>Projectsssss Client</h1>;
+
+  const [players, setPlayers] = useState([])
+
+  useEffect(() => {
+    fetch('/players')
+      .then(res => res.json())
+      .then(data => setPlayers(data))
+  }, [])
+
+
+  return (
+    // players.map((player) => )
+    <div>
+      <NavBar />
+      <h1>Player Stats Page</h1>
+      <Outlet />
+    </div>
+  );
 }
 
 export default App;
