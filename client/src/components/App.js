@@ -69,11 +69,6 @@ function App() {
 
 
 
-
-
-
-
-
   function deletePlayer(id) {
     fetch(`/players/${id}`, {
       method: "DELETE"
@@ -89,12 +84,6 @@ function App() {
         }
       })
   }
-
-
-
-
-
-
 
 
 

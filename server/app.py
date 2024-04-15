@@ -10,7 +10,7 @@ from flask_restful import Resource
 from config import app, db, api
 # Add your model imports
 # need this import before the migration will work___________________________________________
-from models import Player
+from models import Player, Team
 
 # Views go here!
 
@@ -102,6 +102,37 @@ class PlayerByID(Resource):
 
 
 api.add_resource(PlayerByID, '/players/<int:id>')
+
+
+
+
+class AllTeams(Resource):
+
+    def get(self):
+
+        teams = Team.query.all()
+
+        response_body = [team.to_dict() for team in teams]
+        return make_response(response_body, 200)
+
+
+
+    def post(self):
+        try:
+            new_team = Team(name=request.json.get('name'), city=request.json.get('city'), mascot=request.json.get('mascot'), championships=request.json.get('championships'), seasons=request.json.get('seasons'), logo=request.json.get('logo'))
+            db.session.add(new_team)
+            db.session.commit()
+
+            response_body = new_team.to_dict()
+            return make_response(response_body, 201)
+        except:
+            response_body = {
+                'error': 'Team must have a city and a name'
+            }
+            return make_response(response_body, 400)
+
+
+api.add_resource(AllTeams, '/teams')
 
 
 

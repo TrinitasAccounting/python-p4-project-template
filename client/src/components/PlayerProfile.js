@@ -59,24 +59,12 @@ function PlayerProfile() {
         updatePlayer(player.id, formData, setPlayer)
 
         toggleDisplayForm()
-
-
     }
 
 
     function updateFormData(event) {
         setFormData({ ...formData, [event.target.name]: event.target.value })
     }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -97,11 +85,8 @@ function PlayerProfile() {
                             <form onSubmit={handleSubmit} className="edit-hotel">
                                 <input onChange={updateFormData} type="text" name="name" placeholder="Hotel name" value={formData.name} />
                                 <input onChange={updateFormData} type="number" name="jersey_number" placeholder="Jersey number" value={formData.jersey_number} />
-
-                                {/* <input onChange={updateFormData} type="text" name="image" placeholder="Image URL" value={formData.image} /> */}
                                 <button type="submit">Save Changes</button>
                             </form>
-                            {/* <button onClick={handleDeleteButtonClick}>Delete Player</button> */}
                         </div>}
                 </div> :
                 null

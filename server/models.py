@@ -23,6 +23,10 @@ class Player(db.Model, SerializerMixin):
 
     team_id = db.Column(db.Integer, db.ForeignKey('teams.id'))
 
+    team = db.relationship('Team', back_populates='players')
+
+    serialize_rules = ('-team.players',)
+
 
     @validates('name')
     def validate_name(self, attr, value):
@@ -30,9 +34,17 @@ class Player(db.Model, SerializerMixin):
             raise ValueError(f'{attr} must have a name')
         else:
             return value
+
+    @validates('team_id')
+    def validate_team_id(self, attr, value):
+        if (not isinstance(value, Team)):
+            raise ValueError(f'{attr} must be an instance of the Team class')
+        else:
+            return value
+
         
 
-class Teams(db.Model, SerializerMixin):
+class Team(db.Model, SerializerMixin):
     __tablename__ = 'teams'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -42,6 +54,16 @@ class Teams(db.Model, SerializerMixin):
     championships = db.Column(db.Integer)
     seasons = db.Column(db.Integer)
     logo = db.Column(db.String)
+
+
+    players = db.relationship('Player', back_populates='team', cascade='all')
+
+    serialize_rules = ('-players.team',)
+
+
+    __table_args__ = (db.CheckConstraint('seasons >= 0'),)
+
+    
 
     
 
