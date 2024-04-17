@@ -90,16 +90,16 @@ function PlayerProfile() {
                 <div><br />
 
                     <h1>{player.name}</h1>
-                    <h4>Jersey Number: {player.jersey_number}</h4>
-                    <h4>Points Scored: {player.points}</h4>
-                    <h4># of Assists: {player.assits}</h4>
-                    <h4># of Rebounds: {player.rebounds}</h4>
-                    <h4># of Games Played: {player.games_played}</h4>
-                    <h4>3 Pointers Made: {player.fg_3p}</h4>
-                    <h4>2pt Shot Percentage: {player.percentage_2p}</h4>
-                    <h4>3pt Shot Percentage: {player.percentage_3p}</h4>
                     {!displayForm ?
                         <div className="button-div">
+                            <h4>Jersey Number: {player.jersey_number}</h4>
+                            <h4>Points Scored: {player.points}</h4>
+                            <h4># of Assists: {player.assits}</h4>
+                            <h4># of Rebounds: {player.rebounds}</h4>
+                            <h4># of Games Played: {player.games_played}</h4>
+                            <h4>3 Pointers Made: {player.fg_3p}</h4>
+                            <h4>2pt Shot Percentage: {player.percentage_2p}</h4>
+                            <h4>3pt Shot Percentage: {player.percentage_3p}</h4>
                             <button onClick={toggleDisplayForm} className="update-button">Update Player</button>
                             <button onClick={handleDeleteButtonClick} className="delete-button">Delete Player</button>
                         </div> :
