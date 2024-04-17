@@ -34,20 +34,23 @@ function PlayersTable() {
         //     {playersComponents}
         //     {/* <Link to={`/players/${player.id}`}>Player Profile</Link> */}
         // </ul>
+        <div>
+            <h1>All Players Stats</h1>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Jersey Number</th>
-                    <th>Points Scored</th>
-                    <th># of Games Played</th>
-                    <th>Profile</th>
-                </tr>
-            </thead>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Jersey Number</th>
+                        <th>Points Scored</th>
+                        <th># of Games Played</th>
+                        <th>Profile</th>
+                    </tr>
+                </thead>
 
-            {playersComponents}
-        </table >
+                {playersComponents}
+            </table >
+        </div>
     )
 };
 

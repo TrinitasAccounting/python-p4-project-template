@@ -28,12 +28,11 @@ function Teams() {
             <div key={team.id}>
                 <li>
                     <img src={team.logo} alt={team.name} className='team-logo' /> |
-                    | {team.name} |
+                    |                   {team.name}|
                     | {team.mascot}
                     {/* {team.players[1]} */}
                     {/* {playersList} */}
 
-                    <button>Click Me</button>
                 </li>
                 <Link to={`/teams/players/${team.id}`}>
                     <button type='button' >Players on Team</button>
@@ -45,9 +44,12 @@ function Teams() {
     })
 
     return (
-        <ul>
-            {teamsList}
-        </ul>
+        <div>
+            <h1>All NBA Teams</h1>
+            <ul>
+                {teamsList}
+            </ul>
+        </div>
     )
 }
 

@@ -11,8 +11,8 @@ function NewTeamForm() {
         name: "",
         city: "",
         mascot: "",
-        championships: undefined,
-        seasons: undefined,
+        championships: '0',
+        seasons: '0',
         logo: ""
     })
 
@@ -34,15 +34,31 @@ function NewTeamForm() {
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input onChange={updateFormData} type='text' name='name' placeholder='Team Name' value={formData.name} />
-            <input onChange={updateFormData} type='text' name='city' placeholder='City' value={formData.city} />
-            <input onChange={updateFormData} type='text' name='mascot' placeholder='Mascot' value={formData.mascot} />
-            <input onChange={updateFormData} type='number' name='chamionships' placeholder='# of Championships' value={formData.championships} />
-            <input onChange={updateFormData} type='number' name='seasons' placeholder='# of Seasons Played' value={formData.seasons} />
-            <input onChange={updateFormData} type='text' name='logo' placeholder='Team Logo' value={formData.logo} />
-            <input type='submit' value="add new team" />
-        </form>
+        <div>
+            <br />
+            <h1>Add a New Team</h1>
+            <form onSubmit={handleSubmit}>
+                <label>Team Name
+                    <input onChange={updateFormData} type='text' name='name' placeholder='Team Name' value={formData.name} />
+                </label><br />
+                <br /><label>City
+                    <input onChange={updateFormData} type='text' name='city' placeholder='City' value={formData.city} />
+                </label><br />
+                <br /><label>Team Mascot
+                    <input onChange={updateFormData} type='text' name='mascot' placeholder='Mascot' value={formData.mascot} />
+                </label><br />
+                <br /><label># of Championships
+                    <input onChange={updateFormData} type='number' name='championships' placeholder='# of Championships' value={formData.championships} />
+                </label><br />
+                <br /><label># of Seasons
+                    <input onChange={updateFormData} type='number' name='seasons' placeholder='# of Seasons Played' value={formData.seasons} />
+                </label><br />
+                <br /><label>Team Logo
+                    <input onChange={updateFormData} type='text' name='logo' placeholder='Team Logo' value={formData.logo} />
+                </label><br />
+                <br /><input type='submit' value="add new team" />
+            </form>
+        </div>
     )
 };
 

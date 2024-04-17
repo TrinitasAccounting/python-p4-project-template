@@ -127,8 +127,8 @@ function App() {
     // players.map((player) => )
     <div>
       <NavBar />
-      <h1>Player Stats Page</h1>
-      <Outlet context={{ players: players, teams: teams, addPlayer: addPlayer, deletePlayer: deletePlayer, updatePlayer: updatePlayer, addTeam: addTeam }} />
+      {/* <h1>Player Stats Page</h1> */}
+      <Outlet context={{ players: players, teams: teams, coaches: coaches, addPlayer: addPlayer, deletePlayer: deletePlayer, updatePlayer: updatePlayer, addTeam: addTeam }} />
     </div>
   );
 }

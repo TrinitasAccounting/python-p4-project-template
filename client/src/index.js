@@ -12,6 +12,7 @@ import PlayerProfile from "./components/PlayerProfile";
 import Teams from './components/Teams';
 import PlayersOnTeam from "./components/PlayersOnTeam";
 import NewTeamForm from "./components/NewTeamForm";
+import CoachesTable from "./components/CoachesTable";
 
 
 // _________Note: To render any children the '<Outlet /> has to be included___________________
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             {
                 path: '/add_team',
                 element: <NewTeamForm />
+            },
+            {
+                path: '/coaches',
+                element: <CoachesTable />
             }
 
         ]
