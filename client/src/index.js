@@ -9,6 +9,9 @@ import ErrorPage from "./components/ErrorPage";
 import PlayersTable from "./components/PlayersTable";
 import NewPlayerForm from "./components/NewPlayerForm";
 import PlayerProfile from "./components/PlayerProfile";
+import Teams from './components/Teams';
+import PlayersOnTeam from "./components/PlayersOnTeam";
+import NewTeamForm from "./components/NewTeamForm";
 
 
 // _________Note: To render any children the '<Outlet /> has to be included___________________
@@ -30,10 +33,18 @@ const router = createBrowserRouter([
                 path: "/players/:id",
                 element: <PlayerProfile />
             },
-            // {
-            //     path: '/teams',
-            //     element: 
-            // }
+            {
+                path: '/teams',
+                element: <Teams />
+            },
+            {
+                path: '/teams/players/:id',
+                element: <PlayersOnTeam />
+            },
+            {
+                path: '/add_team',
+                element: <NewTeamForm />
+            }
 
         ]
     }

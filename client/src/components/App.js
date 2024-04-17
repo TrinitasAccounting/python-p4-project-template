@@ -10,12 +10,30 @@ import NavBar from "./NavBar";
 function App() {
 
   const [players, setPlayers] = useState([])
+  const [teams, setTeams] = useState([])
+  const [coaches, setCoaches] = useState([])
 
+  // Fetching all of the players using GET
   useEffect(() => {
     fetch('/players')
       .then(res => res.json())
       .then(data => setPlayers(data))
   }, [])
+
+  // Fetching all of the teams using GET
+  useEffect(() => {
+    fetch('/teams')
+      .then(res => res.json())
+      .then(data => setTeams(data))
+  }, [])
+
+  // Fetching all of the coaches using GET
+  useEffect(() => {
+    fetch('/coaches')
+      .then(res => res.json())
+      .then(data => setCoaches(data))
+  }, [])
+
 
   function addPlayer(newPlayerData) {
     fetch('/players', {
@@ -29,6 +47,23 @@ function App() {
       .then(response => response.json())
       .then(newPlayerData => setPlayers([...players, newPlayerData]))
   }
+
+
+  function addTeam(newTeamData) {
+    fetch('/teams', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(newTeamData)
+    })
+      .then(response => response.json())
+      .then(newTeamData => setTeams([...teams, newTeamData]))
+  }
+
+
+
 
 
   function updatePlayer(id, playerDataForUpdate, setPlayerFromPlayerProfile) {
@@ -93,7 +128,7 @@ function App() {
     <div>
       <NavBar />
       <h1>Player Stats Page</h1>
-      <Outlet context={{ players: players, addPlayer: addPlayer, deletePlayer: deletePlayer, updatePlayer: updatePlayer }} />
+      <Outlet context={{ players: players, teams: teams, addPlayer: addPlayer, deletePlayer: deletePlayer, updatePlayer: updatePlayer, addTeam: addTeam }} />
     </div>
   );
 }

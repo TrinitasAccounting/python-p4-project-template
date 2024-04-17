@@ -11,6 +11,7 @@ function NewPlayerForm() {
         jersey_number: ""
     })
 
+    // This addPlayer is passed from the app.js file
     const { addPlayer } = useOutletContext();
     const navigate = useNavigate();
 
