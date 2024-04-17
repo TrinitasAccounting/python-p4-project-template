@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useOutletContext, useNavigate } from 'react-router-dom';
+import { useParams, useOutletContext, useNavigate, Link } from 'react-router-dom';
 
 
 function PlayersOnTeam() {
@@ -33,7 +33,7 @@ function PlayersOnTeam() {
 
 
 
-    console.log(teamPlayers['players']);
+    // console.log(teamPlayers['players']);
 
 
     // const ListOfPlayers = []
@@ -96,7 +96,8 @@ function PlayersOnTeam() {
                     return (
                         <div key={player.id}>
                             <li>
-                                {player.name}
+                                {player.name} |
+                                <Link to={`/players/${player.id}`}>Player Profile</Link>
                             </li>
                         </div>
                     )
